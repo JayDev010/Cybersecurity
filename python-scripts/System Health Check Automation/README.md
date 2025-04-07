@@ -31,20 +31,30 @@ This Python-based **System Health Check Automation** script is designed to monit
 Once the script runs, you'll be presented with a menu to choose from:  
 
  **Run the script and pick an option from the menu.**  
- 
-1. **Check System Uptime**
+ ![](img/menu.png)
 
-2. **Monitor Disk Usage**
+1. **Check System Uptime**. 
+![](img/01_uptime.png.png)
+
+2. **Monitor Disk Usage**. 
+![](img/02_disk.png)
 
 3. **Check Memory Usage**
+![](img/03_memory.png). 
 
-4. **Evaluate CPU Usage**
+4. **Evaluate CPU Usage**. 
+![](img/04_cpu.png)
 
-5. **Monitor Network Connectivity**
+5. **Monitor Network Connectivity**. 
+![](img/05_network.png). 
 
-6. **Send Health Report to Email**
+6. **Send Health Report to Email**. 
+![](img/06_email.png)
 
-7. **Exit**
+7. **Exit**.  
+![](img/07_exit.png)
+
+
 
    >  Don't forget to check your inbox for the system report (make sure SMTP is correctly configured).
 
