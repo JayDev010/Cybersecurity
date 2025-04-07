@@ -14,248 +14,124 @@ This Python-based **System Health Check Automation** script is designed to monit
 
 ---
 
-## Table of Contents
 
-- [Overview](#overview)
-- [Installation](#installation)
-- [Dependencies](#dependencies)
-- [Usage](#usage)
-- [Health Check Options](#health-check-options)
-- [Automating with Cron Jobs](#automating-with-cron-jobs)
-- [Automating with systemd (Linux)](#automating-with-systemd-linux)
-- [Automating with Windows Task Scheduler](#automating-with-windows-task-scheduler)
-- [Troubleshooting](#troubleshooting)
-- [Email Setup](#email-setup) (Optional)
-- [License](#license)
+Thanks, Joan! Using your code and the template structure you provided, here’s a customized `README.md` tailored specifically to your **System Health Check** Python script:
 
 ---
 
-## Overview
+```markdown
+# 🖥️ System Health Check
 
-The **System Health Check Automation** script is a simple yet powerful tool that allows you to monitor your system's health by checking the following metrics:
+## 🔍 Overview
 
-- **CPU Usage**: Displays the percentage of CPU usage.
-- **Memory Usage**: Displays the percentage of used memory.
-- **Disk Usage**: Displays the percentage of used disk space on the system root.
-- **Network Connectivity**: Checks if the system has internet access.
-- **System Uptime**: Shows the time since the system was last booted.
+This Python-based **System Health Check** tool provides an interactive menu for monitoring essential aspects of system performance. It checks system uptime, disk space, memory usage, CPU load, and network connectivity, and it can email a detailed health report for further analysis or recordkeeping.
 
-The script allows you to:
-- **Run checks manually** or
-- **Schedule automated health checks** using **cron jobs**, **systemd timers**, or **Windows Task Scheduler**.
+It’s designed for sysadmins, cybersecurity analysts, and IT professionals who want a quick, script-based snapshot of system health — ideal for use on Linux servers or desktops.
 
-You can also **send health reports** via email for periodic updates on your system's status.
+### ✨ Features
+
+- **Uptime Check**: See how long the system has been running.
+- **Disk Usage Monitoring**: View current disk space statistics.
+- **Memory Usage**: Get a breakdown of RAM usage.
+- **CPU Load**: Evaluate current CPU usage and load average.
+- **Network Connectivity**: Check internet connectivity by attempting to reach Google.
+- **Email Reports**: Sends the system health log to any valid email address.
+- **Logging**: Outputs all activity to a log file located at `/tmp/system_health.log`.
+- **Error Handling**: Handles invalid input and email formats gracefully.
+- **Color-Coded Output**: Easy-to-read terminal logs using ANSI color codes.
+
+> 💡 Note: This script does not yet support cron jobs or running services check — features mentioned in the template have been adapted accordingly.
 
 ---
 
-## Installation
+## 📁 Files
 
-To install the System Health Check Automation script, follow these steps:
+### `system_health.py`
+- Core Python script for executing system health checks.
+- Offers an interactive menu to trigger different checks.
+- Automatically logs each action and its output.
+- Supports sending log results via email (basic SMTP setup required).
+- Includes email validation and connection error handling.
 
-### 1. Clone the Repository
+---
 
-Clone the repository to your local machine using `git`:
+## ⚙️ How It Works
 
-```bash
-git clone https://github.com/yourusername/system-health-check.git
-cd system-health-check
+### 🛠️ Menu Options
+Once the script runs, you'll be presented with a menu to choose from:
+
+1. **Check System Uptime**
+2. **Monitor Disk Usage**
+3. **Check Memory Usage**
+4. **Evaluate CPU Usage**
+5. **Monitor Network Connectivity**
+6. **Send Health Report to Email**
+7. **Exit**
+
+Each option runs a command under the hood (`uptime`, `df`, `free`, `top`, etc.) and prints the result to both the screen and the log file.
+
+### 📬 Email Report
+- The report is sent from a configured Gmail account.
+- You’ll be prompted to enter a recipient email.
+- Email validation is enforced before sending.
+- Make sure to update credentials inside the script before use.
+
+---
+
+## 🧪 Installation & Usage
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/system-health-check.git
+   cd system-health-check
+   ```
+
+2. **Update Email Credentials:**
+   Open `system_health.py` and update:
+   ```python
+   sender_email = "your_email@gmail.com"
+   sender_password = "your_email_password"
+   ```
+
+3. **Run the script:**
+   ```bash
+   python3 system_health.py
+   ```
+
+---
+
+## 📷 Example Workflow
+
+1. Run the script and pick an option from the menu.
+2. Check your system uptime, disk, memory, or CPU stats.
+3. Test internet connectivity.
+4. Send the report via email using option 6.
+5. Exit cleanly from the menu.
+
+> 📩 Don't forget to check your inbox for the system report (make sure SMTP is correctly configured).
+
+---
+
+## ⚠️ Notes
+
+- Email functionality depends on external SMTP server access and correct credentials.
+- Logging is enabled by default to `/tmp/system_health.log`.
+- Script uses Linux-native commands and may not work on Windows without adaptation.
+- No third-party dependencies — runs on standard Python 3 with `psutil` included by default in most Linux distributions.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
 ```
 
-### 2. Ensure Python 3 is Installed
-
-The script requires **Python 3** to run. Check if Python 3 is installed by running:
-
-```bash
-python3 --version
-```
-
-If Python 3 is not installed, follow the installation instructions for [Python 3](https://www.python.org/downloads/).
-
-### 3. Install Dependencies
-
-This script uses the **psutil** Python library to gather system health data. Install the required dependencies using `pip`:
-
-```bash
-pip3 install psutil
-```
-
-The `psutil` library handles system statistics such as CPU, memory, and disk usage.
-
 ---
 
-## Dependencies
+Let me know if you’d like:
+- A Bash script added to match the template.
+- Cron job functionality implemented.
+- Any specific visual enhancements or logging features added.
 
-The following dependencies are required to run the script:
-
-- **psutil**: A cross-platform library to retrieve system and process-related information (CPU, memory, disks, and more).
-- **smtplib**: A built-in Python library used to send email notifications. 
-
-All dependencies are installed using the `pip3` command, as shown in the installation steps above.
-
----
-
-## Usage
-
-After installation, you can run the script manually or automate it to run at scheduled intervals.
-
-### Running the Script Manually
-
-To run the script manually, use the following command:
-
-```bash
-python3 system_health_check.py
-```
-
-Once the script is running, it will check and display your system's health metrics, including CPU, memory, disk usage, and uptime. The script will prompt you with a menu of available options to check various system parameters.
-
-### Health Check Options
-
-When the script runs, you'll be prompted with the following options:
-
-- **Check System Uptime**: Displays how long the system has been running since the last boot.
-- **Monitor Disk Usage**: Displays the percentage of disk usage for the system root (`/`).
-- **Check Memory Usage**: Displays the percentage of memory in use.
-- **Evaluate CPU Usage**: Displays the current CPU load.
-- **Monitor Network Connectivity**: Checks if the system has internet access.
-- **Send Health Report via Email**: Sends an email with the system health report (requires email setup).
-- **Exit**: Exits the script.
-
----
-
-## Automating with Cron Jobs
-
-On **Linux/macOS**, you can schedule the script to run at regular intervals using **cron jobs**.
-
-### Steps to Set Up a Cron Job
-
-1. **Make the script executable**:
-
-    ```bash
-    chmod +x system_health_check.py
-    ```
-
-2. **Create a cron job**:
-
-    Open the crontab editor by running:
-
-    ```bash
-    crontab -e
-    ```
-
-    Add the following line to schedule the script to run every 4 hours:
-
-    ```bash
-    0 */4 * * * /usr/bin/python3 /path/to/system_health_check.py >> /path/to/cron_output.log 2>&1
-    ```
-
-    This cron job will run the script every 4 hours and log the output to `cron_output.log`.
-
----
-
-## Automating with systemd (Linux)
-
-If you're using **systemd** on Linux, you can use a systemd timer to schedule the script.
-
-### Steps to Set Up systemd Timer
-
-1. **Create a systemd service**:
-
-    Create a file `/etc/systemd/system/system_health_check.service` with the following content:
-
-    ```ini
-    [Unit]
-    Description=System Health Check Service
-
-    [Service]
-    ExecStart=/usr/bin/python3 /path/to/system_health_check.py
-    User=your_user
-    WorkingDirectory=/path/to/working_directory
-
-    [Install]
-    WantedBy=multi-user.target
-    ```
-
-2. **Create the systemd timer**:
-
-    Create a timer file `/etc/systemd/system/system_health_check.timer` with the following content:
-
-    ```ini
-    [Unit]
-    Description=Runs system health check every 4 hours
-
-    [Timer]
-    OnBootSec=10min
-    OnUnitActiveSec=4h
-    Unit=system_health_check.service
-
-    [Install]
-    WantedBy=timers.target
-    ```
-
-3. **Enable the timer**:
-
-    Enable and start the timer by running the following commands:
-
-    ```bash
-    sudo systemctl enable system_health_check.timer
-    sudo systemctl start system_health_check.timer
-    ```
-
----
-
-## Automating with Windows Task Scheduler
-
-For **Windows** users, you can use **Windows Task Scheduler** to run the script at regular intervals.
-
-### Steps to Set Up Windows Task Scheduler
-
-1. Open **Task Scheduler** and click **Create Task**.
-2. In the **General** tab, provide a name for the task (e.g., "System Health Check").
-3. In the **Triggers** tab, create a trigger to run the script every 4 hours.
-4. In the **Actions** tab, select "Start a Program" and browse to your Python executable. In the "Add arguments" box, add the full path to your script (`/path/to/system_health_check.py`).
-5. Save the task.
-
----
-
-## Troubleshooting
-
-- **`psutil` installation errors**: If you're having trouble installing `psutil`, ensure you're using the correct version of `pip` for Python 3 (`pip3`).
-- **Email not sending**: If the email functionality is not working, ensure your SMTP settings are correct and that your email provider (e.g., Gmail) allows access to less secure apps.
-- **Permission errors**: Ensure you have the necessary permissions to run the script and create cron jobs/systemd timers.
-
----
-
-## Email Setup
-
-For the **Send Health Report via Email** feature, you need an SMTP server set up. For **Gmail**, follow these steps:
-
-1. Enable **Less Secure Apps** in your Gmail account settings.
-2. Use the following sample code for sending email reports (replace placeholders with your credentials):
-
-    ```python
-    import smtplib
-    from email.mime.text import MIMEText
-    from email.mime.multipart import MIMEMultipart
-
-    def send_email_report(subject, body, to_email):
-        smtp_server = 'smtp.gmail.com'
-        smtp_port = 587
-        sender_email = 'your_email@gmail.com'
-        sender_password = 'your_email_password'
-        
-        msg = MIMEMultipart()
-        msg['From'] = sender_email
-        msg['To'] = to_email
-        msg['Subject'] = subject
-        msg.attach(MIMEText(body, 'plain'))
-
-        with smtplib.SMTP(smtp_server, smtp_port) as server:
-            server.starttls()
-            server.login(sender_email, sender_password)
-            text = msg.as_string()
-            server.sendmail(sender_email, to_email, text)
-    ```
-
----
-
-##
+Ready when you are!
