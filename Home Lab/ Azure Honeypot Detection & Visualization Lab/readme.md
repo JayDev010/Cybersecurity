@@ -21,12 +21,16 @@ This project walks through setting up a honeypot on Azure, capturing brute-force
 1. **Create a Resource Group**  
    - In Azure Portal, search for **"Resource Groups"**.
    - Click **Create** and give it a name (e.g., `Honeypot-RG`).
-   - Choose your subscription and preferred region.
+   - Choose your subscription and preferred region.  
+   ![](img/resource_group.png) 
+   ![](img/resource_group2.png)
+
 
 2. **Create a Virtual Network (VNet)**  
    - Navigate to **Virtual Networks** and click **Create**.
    - Name your VNet (e.g., `Honeypot-VNet`) and assign it to your new Resource Group.
-   - Set address space and create at least one subnet (e.g., `10.0.0.0/24`).
+   - Set address space and create at least one subnet (e.g., `10.0.0.0/24`).  
+   ![](img/Virtual_network.png)
 
 3. **Create a Windows 10 Virtual Machine**  
    - Go to **Virtual Machines** and click **Create**.
