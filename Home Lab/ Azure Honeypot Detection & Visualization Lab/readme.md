@@ -18,12 +18,29 @@ This project walks through setting up a honeypot on Azure, capturing brute-force
 
 ## Part 2: Deploying the Honeypot (Windows VM)
 
-1. In Azure Portal, search for "Virtual Machines" and create a new **Windows 10 VM**.
+1. **Create a Resource Group**  
+   - In Azure Portal, search for **"Resource Groups"**.
+   - Click **Create** and give it a name (e.g., `Honeypot-RG`).
+   - Choose your subscription and preferred region.
 
-2. Choose an appropriate size (Cyber Range users may have limited sizes).
+2. **Create a Virtual Network (VNet)**  
+   - Navigate to **Virtual Networks** and click **Create**.
+   - Name your VNet (e.g., `Honeypot-VNet`) and assign it to your new Resource Group.
+   - Set address space and create at least one subnet (e.g., `10.0.0.0/24`).
 
-3. Take note of the VM's username and password.
+3. **Create a Windows 10 Virtual Machine**  
+   - Go to **Virtual Machines** and click **Create**.
+   - Choose **Windows 10** as the image.
+   - Place the VM in your existing **Resource Group** and **VNet**.
+   - Select an appropriate size (smaller sizes may be enforced if you're using the Cyber Range).
+   - Set a username and password — keep these safe!
 
-4. Navigate to the **Network Security Group** for your VM and allow **all inbound traffic**.
+4. **Allow All Inbound Traffic**  
+   - After the VM is deployed, go to its **Network Security Group (NSG)**.
+   - Add a new inbound rule to **allow all traffic** (for honeypot simulation).
 
-5. Log in to the VM and disable the Windows Firewall:
+5. **Disable Windows Firewall**  
+   - RDP into the VM using the public IP address.
+   - Open the firewall settings:
+
+6. Take note of the VM's username and password.
