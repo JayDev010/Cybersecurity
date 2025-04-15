@@ -54,5 +54,6 @@ This project walks through setting up a honeypot on Azure, capturing brute-force
 6. **Disable Windows Firewall**  
    - RDP into the VM using the public IP address.
    - Open the firewall settings:
+   ![](img/Windows_firewall.png)
 
 6. Take note of the VM's username and password.
