@@ -81,7 +81,7 @@ This project walks through setting up a honeypot on Azure, capturing brute-force
 3. Set up the **“Windows Security Events via AMA”** connector.
 4. Use the DCR (Data Collection Rule) to ingest logs.
 5. Query the logs in LAW using KQL:
-```kql
+
 SecurityEvent
 | where EventId == 4625
 
