@@ -1,6 +1,16 @@
 # Azure Honeypot Detection & Visualization Lab
 
-This project walks through setting up a honeypot on Azure, capturing brute-force login attempts, enriching logs with geolocation data, and visualizing attacks using Microsoft Sentinel. It's designed for hands-on practice in security operations, SIEM, and Kusto Query Language (KQL).
+This project walks through setting up a honeypot on Azure, capturing brute-force login attempts, enriching logs with geolocation data, and visualizing attacks using Microsoft Sentinel. It's designed for hands-on practice in security operations, SIEM, and Kusto Query Language (KQL).  
+
+## Overview  
+### By the end of this lab, you'll have:  
+- Set up a honeypot on Azure
+- Captured and visualized brute-force attempts
+- Used KQL to analyze logs
+- Enriched logs with geolocation data
+- Built a live attack map using Sentinel
+
+**This hands-on project strengthens your knowledge of Azure, Sentinel, and log analysis — key skills for any SOC Analyst.**
 
 ## Part 1: Azure Subscription Setup
 
@@ -53,7 +63,44 @@ This project walks through setting up a honeypot on Azure, capturing brute-force
 
 6. **Disable Windows Firewall**  
    - RDP into the VM using the public IP address.
-   - Open the firewall settings:
+   - Open the firewall settings: **Start -> wf.msc -> Properties -> Turn off Domain, Private, and Public profiles**
    ![](img/Windows_firewall.png)
 
-6. Take note of the VM's username and password.
+
+## Part 3: Simulating Brute Force & Inspecting Logs
+1. Attempt **three failed logins** using a dummy username like `employee`.
+2. Successfully log into the VM.
+3. Open **Event Viewer** and navigate to:
+4. 4. Look for Event ID **4625** indicating failed login attempts.
+   ![](img/)
+
+## Part 4: Centralized Logging & KQL Queries
+
+1. Create a **Log Analytics Workspace** (LAW).
+2. Deploy **Microsoft Sentinel** and link it to your LAW.
+3. Set up the **“Windows Security Events via AMA”** connector.
+4. Use the DCR (Data Collection Rule) to ingest logs.
+5. Query the logs in LAW using KQL:
+```kql
+SecurityEvent
+| where EventId == 4625
+
+## Part 5: Log Enrichment with Geo-IP Data
+Download the IP geo database: geoip-summarized.csv.
+In Sentinel, create a Watchlist:
+
+Name/Alias: geoip
+
+Source Type: Local File
+
+Search Key: network
+
+## Part 6: Building an Attack Map
+
+In Sentinel, create a new Workbook.
+
+Remove default elements and add a Query tile.
+
+Switch to the Advanced Editor and paste in the JSON from map.json.
+
+Review the query logic and map configuration.
