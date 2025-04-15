@@ -6,7 +6,11 @@ This project walks through setting up a honeypot on Azure, capturing brute-force
 
 1. Create a [Free Azure Subscription](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account) or use a paid subscription. If opting for a paid tier, remember to shut down/delete resources when done to avoid charges.
 
-2. Alternatively, use the [Cyber Range](https://skool.com/cyber-range) for a flat fee and get access to Azure resources.  
+2. Alternatively, use the [Cyber Range](https://skool.com/cyber-range) for a flat fee and get access to:
+   - Azure resources
+   - Tenable & Defender for Endpoint
+   - Guided labs & courses
+   - Optional cybersecurity internship
 
 3. Once set up, log in to the [Azure Portal](https://portal.azure.com).
 
@@ -24,7 +28,7 @@ This project walks through setting up a honeypot on Azure, capturing brute-force
 
 2. **Create a Virtual Network (VNet)**  
    - Navigate to **Virtual Networks** and click **Create**.
-   - Name your VNet (e.g., `Honeypot-VNet`) and assign it to your new Resource Group.
+   - Name your VNet (e.g., `CORP-NET-EAST-1`) and assign it to your new Resource Group.
    - Set address space and create at least one subnet (e.g., `10.0.0.0/24`).  
    ![](img/Virtual_network.png)
 
@@ -33,13 +37,21 @@ This project walks through setting up a honeypot on Azure, capturing brute-force
    - Choose **Windows 10** as the image.
    - Place the VM in your existing **Resource Group** and **VNet**.
    - Select an appropriate size (smaller sizes may be enforced if you're using the Cyber Range).
-   - Set a username and password — keep these safe!
+   - Select a `Standard HDD` on OS disk type.
+   - Set a username and password — keep these safe!  
+   ![](img/virtual_machine.png)
+   ![](img/virtual_machine_created.png)
 
 4. **Allow All Inbound Traffic**  
    - After the VM is deployed, go to its **Network Security Group (NSG)**.
    - Add a new inbound rule to **allow all traffic** (for honeypot simulation).
+   ![](img/delete_inbound_rule.png)
+   ![](img/add_inbound_rule.png)
 
-5. **Disable Windows Firewall**  
+5. **Start the Virtual machine**. 
+   ![](img/Start_vm.png)
+
+6. **Disable Windows Firewall**  
    - RDP into the VM using the public IP address.
    - Open the firewall settings:
 
