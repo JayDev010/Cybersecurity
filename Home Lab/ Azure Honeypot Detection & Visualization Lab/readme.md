@@ -6,11 +6,7 @@ This project walks through setting up a honeypot on Azure, capturing brute-force
 
 1. Create a [Free Azure Subscription](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account) or use a paid subscription. If opting for a paid tier, remember to shut down/delete resources when done to avoid charges.
 
-2. Alternatively, use the [Cyber Range](https://skool.com/cyber-range) for a flat fee and get access to:
-   - Azure resources
-   - Tenable & Defender for Endpoint
-   - Guided labs & courses
-   - Optional cybersecurity internship
+2. Alternatively, use the [Cyber Range](https://skool.com/cyber-range) for a flat fee and get access to Azure resources.  
 
 3. Once set up, log in to the [Azure Portal](https://portal.azure.com).
 
