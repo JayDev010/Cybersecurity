@@ -1,3 +1,4 @@
+
 # Azure Honeypot Detection & Visualization Lab
 
 This project walks through setting up a honeypot on Azure, capturing brute-force login attempts, enriching logs with geolocation data, and visualizing attacks using Microsoft Sentinel. It's designed for hands-on practice in security operations, SIEM, and Kusto Query Language (KQL).  
@@ -71,8 +72,8 @@ This project walks through setting up a honeypot on Azure, capturing brute-force
 1. Attempt **three failed logins** using a dummy username like `employee`.
 2. Successfully log into the VM.
 3. Open **Event Viewer** and navigate to:
-4. 4. Look for Event ID **4625** indicating failed login attempts.
-   ![](img/)
+4. Look for Event ID **4625** indicating failed login attempts.
+   ![](img/Event_viewer.png)
 
 ## Part 4: Centralized Logging & KQL Queries
 
@@ -81,9 +82,14 @@ This project walks through setting up a honeypot on Azure, capturing brute-force
 3. Set up the **“Windows Security Events via AMA”** connector.
 4. Use the DCR (Data Collection Rule) to ingest logs.
 5. Query the logs in LAW using KQL:
-
+``
 SecurityEvent
 | where EventId == 4625
+``
+![](img/LAW_1.png)
+  ![](img/LAW_2.png)
+  ![](img/Microsoft_sentinel.png)
+  ![](img/LAW_via_AMA.png). 
 
 ## Part 5: Log Enrichment with Geo-IP Data
 Download the IP geo database: geoip-summarized.csv.
@@ -93,7 +99,8 @@ Name/Alias: geoip
 
 Source Type: Local File
 
-Search Key: network
+Search Key: network  
+
 
 ## Part 6: Building an Attack Map
 
@@ -104,3 +111,4 @@ Remove default elements and add a Query tile.
 Switch to the Advanced Editor and paste in the JSON from map.json.
 
 Review the query logic and map configuration.
+![](img/Attack_map.png)
