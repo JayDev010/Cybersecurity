@@ -8,56 +8,38 @@ IP Reputation Check: Retrieves reputation data for a given IP address, including
 File Hash Reputation Check: Fetches reputation data for a given file hash (MD5, SHA1, SHA256), including the analysis statistics and file type description.
 
 ### Requirements
-Python 3.x
+- Python 3.x
 
-requests library (for making HTTP requests to the VirusTotal API)
+- requests library (for making HTTP requests to the VirusTotal API)
 
-You can install the required library using:
-
-bash
-Copy
-Edit
-pip install requests
-Getting Started
 ### **Step 1: Get Your API Key**. 
 
-Sign up for a free or premium account on VirusTotal.
+- Sign up for a free or premium account on VirusTotal and navigate to the API Key section in your VirusTotal account settings to retrieve your personal API key.  
 
-Navigate to the API Key section in your VirusTotal account settings to retrieve your personal API key.
+- Replace YOUR_API_KEY_HERE in the script with your actual API key.
 
-Replace YOUR_API_KEY_HERE in the script with your actual API key.
+### **Step 2: Clone or Download the Repository**. 
 
-### **Step 2: Clone or Download the Repository**
-Clone or download the script to your local machine.
+- Clone or download the script to your local machine.
 
-**Step 3: Install Dependencies**. 
 
-Install the requests library if you haven't already:
-
-bash
-Copy
-Edit
-pip install requests. 
-
-### **Step 4: Run the Script**  
+### **Step 3: Run the Script**  
 Execute the script from the terminal or command prompt:
 
-bash
-Copy
-Edit
-python vt_osint_tool.py
-When prompted, select either 1 to check the IP reputation or 2 to check the file hash reputation.
+bash. 
+Copy. 
+Edit. 
+python vt_osint_tool.py. 
+When prompted, select either 1 to check the IP reputation or 2 to check the file hash reputation.  
 
-For IP Reputation: Enter a valid IP address (e.g., 8.8.8.8).
 
-For File Hash Reputation: Enter a valid file hash (MD5, SHA1, or SHA256).
+For IP Reputation: Enter a valid IP address (e.g., 8.8.8.8).  
 
-Example Output
-IP Reputation
-yaml
-Copy
-Edit
-=== VirusTotal OSINT Threat Intelligence Tool ===
+For File Hash Reputation: Enter a valid file hash (MD5, SHA1, or SHA256).  
+
+#### Output 
+
+`=== VirusTotal OSINT Threat Intelligence Tool ===. 
 1. Check IP Reputation
 2. Check File Hash Reputation
 Select an option (1 or 2): 1
@@ -68,8 +50,9 @@ Enter the IP address: 8.8.8.8
     Suspicious:  0
     Harmless:    0
     Undetected:  60
-    WHOIS Info:  N/A
-File Hash Reputation
+    WHOIS Info:  N/A`. 
+
+`File Hash Reputation
 mathematica
 Copy
 Edit
@@ -84,28 +67,16 @@ Enter the file hash (MD5/SHA1/SHA256): b5ba2f87a22dcce1734743e4dca0ecf3d34b23c7
     Malicious:   0
     Suspicious:  0
     Harmless:    0
-    Undetected:  1
+    Undetected:  1`
  
-### **Step 5: Error Handling**. 
+### **Step 4: Error Handling**.   
 
-The script includes basic error handling. If there's an issue with the API request (e.g., invalid API key, invalid IP address or file hash), the script will display an error message along with the HTTP status code and reason.
+- The script includes basic error handling. If there's an issue with the API request (e.g., invalid API key, invalid IP address or file hash), the script will display an error message along with the HTTP status code and reason.
 
-Common errors include:
+**Common errors include:**  
+Error 401: Authentication error (usually due to a missing or invalid API key).  
 
-Error 401: Authentication error (usually due to a missing or invalid API key).
+Error 404: Data not found (the IP address or file hash hasn't been analyzed by VirusTotal).  
 
-Error 404: Data not found (the IP address or file hash hasn't been analyzed by VirusTotal).
-
-Project Structure
-graphql
-Copy
-Edit
-```.
-├── vt_osint_tool.py  # Main script to interact with the VirusTotal API
-└── README.md         # This file, explaining the project
-Troubleshooting
-API Key Not Found: Ensure you have replaced YOUR_API_KEY_HERE with your actual VirusTotal API key.
-```
-
-License
+## License
 This project is open-source and distributed under the MIT License. See the LICENSE file for more details.
