@@ -50,9 +50,9 @@ Enter the IP address: 8.8.8.8
     Suspicious:  0
     Harmless:    0
     Undetected:  60
-    WHOIS Info:  N/A```. 
+    WHOIS Info:  N/A. 
 
-```File Hash Reputation
+File Hash Reputation
 mathematica
 Copy
 Edit
@@ -67,7 +67,8 @@ Enter the file hash (MD5/SHA1/SHA256): b5ba2f87a22dcce1734743e4dca0ecf3d34b23c7
     Malicious:   0
     Suspicious:  0
     Harmless:    0
-    Undetected:  1```
+    Undetected:  1```. 
+    
  
 ### **Step 4: Error Handling**.   
 
