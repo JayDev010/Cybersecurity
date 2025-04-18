@@ -19,7 +19,7 @@ Copy
 Edit
 pip install requests
 Getting Started
-**Step 1: Get Your API Key**. 
+### **Step 1: Get Your API Key**. 
 
 Sign up for a free or premium account on VirusTotal.
 
@@ -27,7 +27,7 @@ Navigate to the API Key section in your VirusTotal account settings to retrieve 
 
 Replace YOUR_API_KEY_HERE in the script with your actual API key.
 
-**Step 2: Clone or Download the Repository**
+### **Step 2: Clone or Download the Repository**
 Clone or download the script to your local machine.
 
 **Step 3: Install Dependencies**. 
@@ -39,7 +39,7 @@ Copy
 Edit
 pip install requests. 
 
-**Step 4: Run the Script**  
+### **Step 4: Run the Script**  
 Execute the script from the terminal or command prompt:
 
 bash
@@ -86,7 +86,7 @@ Enter the file hash (MD5/SHA1/SHA256): b5ba2f87a22dcce1734743e4dca0ecf3d34b23c7
     Harmless:    0
     Undetected:  1
  
-**Step 5: Error Handling**. 
+### **Step 5: Error Handling**. 
 
 The script includes basic error handling. If there's an issue with the API request (e.g., invalid API key, invalid IP address or file hash), the script will display an error message along with the HTTP status code and reason.
 
@@ -100,12 +100,12 @@ Project Structure
 graphql
 Copy
 Edit
-.
+```.
 ├── vt_osint_tool.py  # Main script to interact with the VirusTotal API
 └── README.md         # This file, explaining the project
 Troubleshooting
 API Key Not Found: Ensure you have replaced YOUR_API_KEY_HERE with your actual VirusTotal API key.
-
+```
 
 License
 This project is open-source and distributed under the MIT License. See the LICENSE file for more details.
