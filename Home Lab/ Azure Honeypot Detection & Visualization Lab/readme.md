@@ -2,9 +2,9 @@
 # Azure Honeypot Detection & Visualization Lab
 
 This project walks through setting up a honeypot on Azure, capturing brute-force login attempts, enriching logs with geolocation data, and visualizing attacks using Microsoft Sentinel. It's designed for hands-on practice in security operations, SIEM, and Kusto Query Language (KQL).  
-Simulated real-world attack scenarios by deploying a cloud-based honeypot to capture brute-force and unauthorized access attempts
-Analyzed attacker behavior, mapped activity to MITRE ATT&CK techniques, and identified attack patterns and indicators of compromise (IOCs)
-Built structured dashboards in Microsoft Sentinel to visualize attack paths, geographic sources, and threat trends
+- Simulated real-world attack scenarios by deploying a cloud-based honeypot to capture brute-force and unauthorized access attempts
+- Analyzed attacker behavior, mapped activity to MITRE ATT&CK techniques, and identified attack patterns and indicators of compromise (IOCs)
+- Built structured dashboards in Microsoft Sentinel to visualize attack paths, geographic sources, and threat trends
 Documented findings to support threat intelligence and security analysis workflows.
 
 ## Overview  
